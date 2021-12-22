@@ -1,0 +1,9 @@
+.item {
+  background-color: #32343d;
+  padding: 15px 12px;
+  margin: 12px 0;
+  color: #fff;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
