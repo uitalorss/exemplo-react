@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {v4 as uuidv4} from 'uuid';
+
 import './App.css'
 import AdicionarTarefa from './components/AdicionarTarefa/AdicionarTarefa';
 
@@ -12,8 +14,8 @@ const App = () =>{
       completed: false,
     },
     {
-      id: 1,
-      conteudo: 'Pegar almoço na geladeira',
+      id: 2,
+      conteudo: 'Comprar pão na volta',
       completed: false,
     },
     
@@ -21,11 +23,19 @@ const App = () =>{
 
   const handleAddTask = (taskTitulo) =>{
     const newTarefa = [...tarefas, {
-      id: Math.random(10),
+      id: uuidv4(),
       conteudo: taskTitulo,
       completed: false,
     }]
     setTarefas(newTarefa)
+  }
+
+  const handleTaskClick = (taskId) =>{
+    const newTarefas = tarefas.map(tarefa =>{
+      if(tarefa.id === taskId) return {...tarefa, completed: !tarefa.completed}
+      return tarefa
+    });
+    setTarefas(newTarefas)
   }
 
   return(
@@ -33,8 +43,8 @@ const App = () =>{
 
     <div className='container'>
       <h1>Minhas Tarefas</h1>
-      <AdicionarTarefa handleAddTask={handleAddTask} />
-      <Tasks tarefas={tarefas} />
+      <AdicionarTarefa handleAddTask={handleAddTask}/>
+      <Tasks tarefas={tarefas} handleTaskClick={handleTaskClick}/>
     </div>
     </>
   )

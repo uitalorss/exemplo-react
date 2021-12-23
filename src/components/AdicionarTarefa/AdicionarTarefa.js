@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './AdicionarTarefa.css'
 import Botao from '../Botao/Botao.js'
 
+
 const AdicionarTarefa = ({handleAddTask}) =>{
   const [inputTarefa, setInputTarefa] = useState('')
   const handleInputChange = (e) =>{
@@ -10,6 +11,7 @@ const AdicionarTarefa = ({handleAddTask}) =>{
 
   const handleAddTaskClick = () =>{
     handleAddTask(inputTarefa)
+    setInputTarefa('');
   }
   return(
     <div className="addTarefaContainer">
