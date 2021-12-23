@@ -18,12 +18,22 @@ const App = () =>{
     },
     
   ])
+
+  const handleAddTask = (taskTitulo) =>{
+    const newTarefa = [...tarefas, {
+      id: Math.random(10),
+      conteudo: taskTitulo,
+      completed: false,
+    }]
+    setTarefas(newTarefa)
+  }
+
   return(
     <>
 
     <div className='container'>
       <h1>Minhas Tarefas</h1>
-      <AdicionarTarefa />
+      <AdicionarTarefa handleAddTask={handleAddTask} />
       <Tasks tarefas={tarefas} />
     </div>
     </>

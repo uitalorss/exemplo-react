@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import './AdicionarTarefa.css'
 import Botao from '../Botao/Botao.js'
 
-const AdicionarTarefa = () =>{
+const AdicionarTarefa = ({handleAddTask}) =>{
+  const [inputTarefa, setInputTarefa] = useState('')
+  const handleInputChange = (e) =>{
+      setInputTarefa(e.target.value)
+  }
+
+  const handleAddTaskClick = () =>{
+    handleAddTask(inputTarefa)
+  }
   return(
     <div className="addTarefaContainer">
-      <input className="inputAddTarefa" type="text" />
+      <input 
+        onChange={handleInputChange}
+        value={inputTarefa} 
+        className="inputAddTarefa" 
+        type="text" />
       <div className="espacoBotao">
-        <Botao>Adicionar</Botao>
+        <Botao onClick={handleAddTaskClick}>Adicionar</Botao>
       </div>
     </div>
   )
