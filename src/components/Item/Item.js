@@ -1,7 +1,7 @@
 import React from 'react'
 import './Item.css'
 
-const Item = ({tarefa, handleTaskClick}) => {
+const Item = ({tarefa, handleTaskClick, handleDeleteTask}) => {
   return(
     <div 
       className='item'
@@ -11,6 +11,9 @@ const Item = ({tarefa, handleTaskClick}) => {
     } : {}}>
       <div className='conteudo-item' onClick={() => handleTaskClick(tarefa.id)}>
         {tarefa.conteudo}
+      </div>
+      <div className='botoesSecundarios'>
+        <button className='removeTarefa' onClick={() => handleDeleteTask(tarefa.id)}>X</button>
       </div>
     </div>
     /*

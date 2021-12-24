@@ -38,13 +38,21 @@ const App = () =>{
     setTarefas(newTarefas)
   }
 
+  const handleDeleteTask = (taskid) =>{
+    const newTarefas = tarefas.filter (tarefa => tarefa.id !== taskid);
+    setTarefas(newTarefas)
+  }
+
   return(
     <>
 
     <div className='container'>
       <h1>Minhas Tarefas</h1>
       <AdicionarTarefa handleAddTask={handleAddTask}/>
-      <Tasks tarefas={tarefas} handleTaskClick={handleTaskClick}/>
+      <Tasks 
+        tarefas={tarefas} 
+        handleTaskClick={handleTaskClick} 
+        handleDeleteTask={handleDeleteTask}/>
     </div>
     </>
   )
