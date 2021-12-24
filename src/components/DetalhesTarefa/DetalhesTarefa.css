@@ -1,0 +1,14 @@
+.conteudoDetalhesTarefa p {
+  color: #fff;
+  line-height: 1.5em;
+}
+
+.conteudoDetalhesTarefa h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.btnvoltar {
+  width: 30%;
+  margin: 15px 0;
+}

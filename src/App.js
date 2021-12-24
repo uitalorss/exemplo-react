@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import {Route, Routes} from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid';
 
 import './App.css'
 import AdicionarTarefa from './components/AdicionarTarefa/AdicionarTarefa';
+import DetalhesTarefa from './components/DetalhesTarefa/DetalhesTarefa';
 
 import Tasks from './components/Tasks/Tasks.js';
 
@@ -44,17 +46,26 @@ const App = () =>{
   }
 
   return(
-    <>
-
     <div className='container'>
-      <h1>Minhas Tarefas</h1>
-      <AdicionarTarefa handleAddTask={handleAddTask}/>
-      <Tasks 
-        tarefas={tarefas} 
-        handleTaskClick={handleTaskClick} 
-        handleDeleteTask={handleDeleteTask}/>
+        <h1>Minhas Tarefas</h1>
+        <Routes>
+        <Route 
+          path="/" 
+          exact 
+          element={
+            <>
+            <AdicionarTarefa 
+              handleAddTask={handleAddTask}/>
+            <Tasks 
+              tarefas={tarefas} 
+              handleTaskClick={handleTaskClick} 
+              handleDeleteTask={handleDeleteTask}/>
+          </>
+          } 
+        />
+        <Route path="/:taskTitulo" exact element={ <DetalhesTarefa /> } />
+        </Routes>
     </div>
-    </>
   )
 }
 

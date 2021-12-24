@@ -13,11 +13,12 @@
   cursor: pointer;
 }
 
-.removeTarefa {
+.removeTarefa,
+.detalhesTarefa {
   background-color: #32343d;
   border: none;
   color: #3498db;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 24px;
   cursor: pointer;
 }

@@ -1,5 +1,8 @@
 import React from 'react'
+import {CgClose, CgInfo} from 'react-icons/cg'
+
 import './Item.css'
+
 
 const Item = ({tarefa, handleTaskClick, handleDeleteTask}) => {
   return(
@@ -13,13 +16,18 @@ const Item = ({tarefa, handleTaskClick, handleDeleteTask}) => {
         {tarefa.conteudo}
       </div>
       <div className='botoesSecundarios'>
-        <button className='removeTarefa' onClick={() => handleDeleteTask(tarefa.id)}>X</button>
+        <button 
+          className='detalhesTarefa'>
+            <CgInfo />
+        </button>
+
+        <button 
+          className='removeTarefa' 
+          onClick={() => handleDeleteTask(tarefa.id)}>
+            <CgClose />
+        </button>
       </div>
     </div>
-    /*
-    <div className='item'>
-      {tarefa.conteudo}
-    </div>*/
   )
 }
 
