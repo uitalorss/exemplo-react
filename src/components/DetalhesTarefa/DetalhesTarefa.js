@@ -1,13 +1,18 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Botao from '../Botao/Botao.js'
 import './DetalhesTarefa.css'
 const DetalhesTarefa = () =>{
   const params = useParams();
+  const navigate = useNavigate();
+
+  const handleClickVoltar = () =>{
+    navigate("/")
+  }
   return(
     <>
       <div className='btnvoltar'>
-        <Botao>Voltar</Botao>
+        <Botao onClick={handleClickVoltar}>Voltar</Botao>
       </div>
       <div className='conteudoDetalhesTarefa'>
         <h2>{params.taskTitulo}</h2>
