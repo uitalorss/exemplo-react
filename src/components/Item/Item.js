@@ -1,10 +1,17 @@
-import React from 'react'
-import {CgClose, CgInfo} from 'react-icons/cg'
+import React from 'react';
+import {CgClose, CgInfo} from 'react-icons/cg';
+import { useNavigate } from 'react-router-dom';
 
 import './Item.css'
 
 
 const Item = ({tarefa, handleTaskClick, handleDeleteTask}) => {
+  const navigate = useNavigate();
+
+  const handleClickDetalhes = () =>{
+    navigate(`/${tarefa.conteudo}`)
+  }
+  
   return(
     <div 
       className='item'
@@ -17,7 +24,7 @@ const Item = ({tarefa, handleTaskClick, handleDeleteTask}) => {
       </div>
       <div className='botoesSecundarios'>
         <button 
-          className='detalhesTarefa'>
+          className='detalhesTarefa' onClick={handleClickDetalhes}>
             <CgInfo />
         </button>
 
