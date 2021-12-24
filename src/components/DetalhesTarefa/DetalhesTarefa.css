@@ -1,3 +1,9 @@
+.conteudoDetalhesTarefa {
+  background-color: #32343d;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
 .conteudoDetalhesTarefa p {
   color: #fff;
   line-height: 1.5em;

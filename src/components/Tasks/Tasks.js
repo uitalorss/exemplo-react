@@ -13,4 +13,4 @@ const Tasks = ({tarefas, handleTaskClick, handleDeleteTask}) =>{
   )
 }
 
-export default Tasks
+export default Tasks;
